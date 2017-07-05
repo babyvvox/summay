@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		img {
+			width: 200px;
+		}
+
+		h1 {
+			display: inline-block;
+		}
+
+	</style>
+</head>
+<body>
+	<!---->
+	<div class="container">
+		<img id="img-0" src="img/0.png">
+		<img id="img-1" src="img/0.png">
+		<h1>:</h1>
+		<img id="img-2" src="img/0.png">
+		<img id="img-3" src="img/0.png">
+		<h1>:</h1>
+		<img id="img-4" src="img/0.png">
+		<img id="img-5" src="img/0.png">
+	</div>
+
+	<script type="text/javascript">
+		function updateTime() {
+			var now = new Date();
+			var h = now.getHours();
+			var m = now.getMinutes();
+			var s = now.getSeconds();
+
+			h = (h < 10) ? ('0' + h) : ('' + h);
+			m = (m < 10) ? ('0' + m) : ('' + m);
+			s = (s < 10) ? ('0' + s) : ('' + s);
+
+			var str = h + m + s;
+			console.log(str);
+			var digital;
+			for (var i=0; i<str.length; i++) {
+				digital = str[i];
+				document.getElementById('img-' + i).src = 'img/'+ digital +'.png'
+			}
+		}
+
+		updateTime();
+
+		setInterval(updateTime, 1000);
+	</script>
+</body>
+</html>
